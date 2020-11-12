@@ -5,7 +5,7 @@ from Config import Config
 from extensions import db, jwt
 from user import User
 from instructions import InstructionListRecourse, InstructionResource, InstructionPublic
-from resources.user import UserListResource, UserResource
+from resources.user import UserListResource, UserResource, MeResource
 from resources.token import TokenResource
 
 
@@ -32,6 +32,7 @@ def register_resources(app):
     api.add_resource(InstructionListRecourse, '/instructions')
     api.add_resource(InstructionResource, '/instructions/<int:instruction_id>')
     api.add_resource(InstructionPublic, '/instructions/<int:instruction_id>/publish')
+    api.add_resource(MeResource, '/me')
 
 
 if __name__ == '__main__':
