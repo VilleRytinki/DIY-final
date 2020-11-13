@@ -33,7 +33,7 @@ class InstructionListRecourse(Resource):
 class InstructionResource(Resource):
     def get(self, instruction_id):
 
-        instruction = Instruction.get_by_id(recipe_id=instruction_id)
+        instruction = Instruction.get_by_id(instruction_id=instruction_id)
 
         if instruction is None:
             return {'message': 'Recipe not found'}, HTTPStatus.NOT_FOUND
@@ -72,8 +72,8 @@ class InstructionResource(Resource):
         return instruction.data, HTTPStatus.OK
 
     @jwt_required
-    def delete(self, recipe_id):
-        instruction = Instruction.get_by_id(recipe_id=instruction_id)
+    def delete(self, instruction_id):
+        instruction = Instruction.get_by_id(instruction_id=instruction_id)
 
         if instruction is None:
             return {'message': 'Recipe not found'}, HTTPStatus.NOT_FOUND
